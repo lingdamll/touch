@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<meta name="keywords" content="落尘文学,小说排行榜,小说排行,手机阅读" />
+    <meta name="description" content="落尘文学提供恐怖小说、灵异小说、玄幻小说、武侠小说、都市小说等小说在线阅读、手机阅读。" />-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>打赏</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <script src="js/zepto.min.js"></script>
+    <style>
+        .reward-layout{
+            width: 100%;
+        }
+        .reward-title{
+            width: 100%;
+            height: 4rem;
+            border-bottom:  1px solid #e5e5e5;
+        }
+        .two-title{
+            width: 80%;
+            height: 4rem;
+            margin: 0 auto;
+            /* display: flex的兼容*/
+            display:-webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            /*justify-content的兼容*/
+            -webkit-justify-content:space-between;
+            justify-content:space-between;
+            /*-moz-box-pack: space-between;*/
+            -webkit--moz-box-pack:space-between;
+            box-pack:space-between;
+            position: relative;
+        }
+        .two-title span{
+            display: inline-block;
+            width: 50%;
+            height: 4rem;
+            line-height: 4rem;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+        .two-title em{
+            display: inline-block;
+            width: 40%;
+            height: 4rem;
+            line-height: 4rem;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+        .active{
+            border-bottom: 2px solid #f96869;
+            color: #f96869;
+        }
+        .reward-content{
+            width: 100%;		
+			overflow: hidden;			
+        }       
+        .movebox{
+        	white-space: nowrap;	
+        	position: relative;
+        	top: 0;
+        	left: 0;	
+        }
+        .reward-content .reward-describe{
+            width: 100%;
+            margin: 0 auto;                       
+            display: inline-block;
+        }       
+        .reward-describe .reward-list{
+            width: 100%;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .reward-describe .reward-list .reward-container{
+            width: 90%;
+            height: 3.8rem;
+            padding: 2rem 0;
+            margin: 0  auto;
+            /*display: flex的兼容*/
+            display:-webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            /*justify-content的兼容*/
+            -webkit-justify-content:space-between;
+            justify-content:space-between;
+            -webkit-box-pack: justify;
+        }
+        .reward-list .left-info{
+            /*display: flex的兼容*/
+            display:-webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
+        .reward-list .left-info img{
+            width: 3.8rem;
+            height: 3.8rem;
+            -moz-border-radius: 50%; /* Firefox */
+            -webkit-border-radius: 50%; /* Safari和Chrome */
+            -o-border-radius: 50%;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        .left-info .people-info{
+            width: 14rem;
+            height: 3.8rem;
+            /*display: flex的兼容*/
+            display:-webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            /*flex-direction: column的兼容*/
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:normal;
+            -moz-box-orient:vertical;
+            -moz-box-direction:normal;
+            flex-direction:column;
+            -webkit-flex-direction:column;
+            /*justify-content兼容*/
+            -webkit-justify-content:space-between;
+            justify-content:space-between;
+            -webkit-box-pack: justify;
+        }
+        .left-info .people-info .name{
+            width: 11.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-size: 1.3rem;
+            color: #6e96b2;
+        }
+        .left-info .people-info .time{
+            font-size: 1.2rem;
+            color: #999;
+        }
+        .left-info .people-info .reward-money{
+            font-size: 1.2rem;
+            color: #4d4d4d;
+        }
+        .left-info .people-info .reward-money span{
+             color: #f96869;
+        }
+        .reward-describe .reward-list .money{
+            height: 3.8rem;
+            line-height: 3.8rem;
+            font-size: 1.3rem;
+            align-self: end;
+        }
+        .reward-describe .reward-list .money span{
+            color: #f96869;
+        }
+        .info-position{
+            position: relative;
+        }
+        .reward-describe .reward-list .info-position .position-img{
+            width: 2.2rem;
+            height: 1.9rem;
+            position: absolute;
+            top: -1.26rem;
+            right: 15.8rem;
+        }
+         #Yellow{
+            border: 1px solid #f6dc42;
+        }
+         #Gray{
+            border: 1px solid #c0c0c0;
+        }
+         #Orange{
+            border: 1px solid #ffb791;
+        }
+        
+        .titlebox{
+        	width: 100%;
+        	white-space: nowrap;
+        }
+        .two-title em.border{
+        	border-bottom:2px solid #f96869;
+        	position: absolute;
+        	top: 0;
+        	left:0;        	
+        	/*display: none;*/
+        }
+    </style>
+</head>
+<body>
+<div class="reward-layout">
+    <!--打赏标题-->
+    <div class="reward-title">
+        <div class="two-title">
+        	<!--新增titlebox-->
+        	<div class="titlebox">
+        		<span class="active">最近打赏</span>
+	            <span>打赏排行</span>
+	            <!--新增span一个-->
+	            <em class="border"></em>
+        	</div>          
+        </div>
+    </div>
+    <!--打赏信息-->
+    <div class="reward-content">
+        <!--最近打赏-->
+        <div class="movebox">
+        	<ul class="reward-describe selected">
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info">
+	                        <img src="images/head-img_03.png" alt=""/>
+	                        <div class="people-info">
+	                         <p class="name">小鸟和小猪是好朋友</p>
+	                            <p class="time">
+	                             <span class="time-day">2017-2-12</span>&nbsp;
+	                                <span class="time-hour">11:22</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                    <p class="money"><span>1000</span> 悠漫币</p>
+	                </div>  
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info">
+	                        <!--头像-->
+	                        <img src="images/head-img_03.png" alt=""/>
+	                        <!--网名和时间-->
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="time">
+	                            <span class="time-day">2017-2-12</span>&nbsp;&nbsp;
+	                            <span class="time-hour">11:22</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                    <!--悠空币-->
+	                    <p class="money"><span>1000</span> 悠漫币</p>
+	                </div>  
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info">
+	                    <!--头像-->
+	                        <img src="images/head-img_03.png" alt=""/>
+	                    <!--网名和时间-->
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="time">
+	                                <span class="time-day">2017-2-12</span>&nbsp;&nbsp;
+	                                <span class="time-hour">11:22</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                    <p class="money"><span>1000</span> 悠漫币</p>
+	                </div>         
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info">
+	                        <!--头像-->
+	                        <img src="images/head-img_03.png" alt=""/>
+	                        <!--网名和时间-->
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="time">
+	                                <span class="time-day">2017-2-12</span>&nbsp;&nbsp;
+	                                <span class="time-hour">11:22</span>
+	                            </p>
+	                        </div>
+	                    </div>
+	                     <p class="money"><span>1000</span> 悠漫币</p>
+	                </div>
+	            </li>
+	        </ul>
+	        <!--打赏排行-->
+	        <ul class="reward-describe">
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info info-position">
+	                    <!--头像-->
+	                        <img src="images/head-img_03.png" alt="" id="Yellow"/>
+	                    <!--皇冠-->
+	                        <img src="images/yellow_03.png" alt="" class="position-img"/>
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪是好朋友</p>
+	                            <p class="reward-money">共打赏<span>100000</span> 悠漫币</p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info info-position">
+	                        <!--头像-->
+	                        <img src="images/head-img_03.png" alt="" id="Gray"/>
+	                        <!--皇冠-->
+	                        <img src="images/gray_03.png" alt="" class="position-img"/>
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="reward-money">共打赏<span>100000</span> 悠漫币</p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info info-position">
+	                        <!--头像-->
+	                        <img src="images/head-img_03.png" alt="" id="Orange"/>
+	                        <!--皇冠-->
+	                        <img src="images/orange_03.png" alt="" class="position-img"/>
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="reward-money">共打赏<span>100000</span> 悠漫币</p>
+	                        </div>
+	                    </div>
+	                </div>   
+	            </li>
+	            <li class="reward-list">
+	                <div class="reward-container">
+	                    <div class="left-info">
+	                        <!--头像-->
+	                        <img src="images/head-img_03.png" alt=""/>
+	                        <div class="people-info">
+	                            <p class="name">小鸟和小猪</p>
+	                            <p class="time reward-money">共打赏<span>100000</span> 悠漫币</p>
+	                     </div>
+	                </div>
+	             </div>           
+	            </li>      
+	        </ul>
+        </div>
+    </div>
+</div>
+<script>
+	$(function () {
+        var page ={
+	   		init:function(){
+	   			this.$border = $(".two-title em.border");
+		   		this.index = 0;
+		   		this.$span = $(".two-title span");
+		   		this.$ul = $(".movebox ul");
+		   		this.spanWidth = this.$span.eq(0).width();
+		   		this.ulWidth = this.$ul.eq(0).width();
+		   		this.$moveBox = $(".movebox");
+		   		this.positionX = 0;
+		   		this.startX = 0 ;
+		   		this.nowX = 0;
+		   		this.chaX = 0; 
+		   		this.endX = 0;
+		   		this.maxX = 30;
+		   		this.minX = -(this.$ul.length-1)*this.ulWidth-30;
+	   		},
+	   		click : function(){
+		   		this.$span.click(function () {    
+		        	page.index = $(this).index();
+		            page.transition();                 
+		        });
+	   		},
+	   		touchEvent : function(){
+	   			this.$moveBox[0].addEventListener("touchstart",function(e){
+		        	page.startX = e.touches[0].clientX;
+		        });
+		        this.$moveBox[0].addEventListener("touchmove",function(e){        	
+		        	page.nowX = e.touches[0].clientX;
+		        	page.chaX = page.positionX+page.nowX-page.startX;        	
+		        	page.chaX = Math.max(page.chaX , page.minX);
+		        	page.chaX = Math.min(page.chaX , page.maxX);		        	
+		        	page.$moveBox.css({"left":page.chaX});
+		        });
+		        this.$moveBox[0].addEventListener("touchend",function(e){
+		        	page.endX = e.changedTouches[0].clientX;   
+		        	if(page.endX-page.startX>150){
+		        		page.index--;
+		        		page.index = Math.max(page.index , 0);
+		        	}else if(page.endX-page.startX<-150){
+		        		page.index++;
+		        		page.index = Math.min(page.index , page.$ul.length-1);        		
+		        	}
+		        	page.transition();        	  
+		        	page.startX = 0;
+		        	page.nowX = 0;
+		        	page.chaX = 0;
+		        });
+	   		},	   		
+	   		resize : function(){
+	   			window.onresize = function(){
+		        	page.spanWidth = page.$span.eq(0).width();
+			   		page.ulWidth = page.$ul.eq(0).width();	   
+			   		page.minX = -(page.$ul.length-1)*page.ulWidth-30;   
+			   		page.transition();
+		       };
+	   		},
+           /* transition : function (){
+                var $that = this.$span.eq(this.index);
+                this.$span.removeClass("active");
+                this.$border.show();
+                this.$border.animate({"left":this.index*this.spanWidth},200,function(){
+                    $that.addClass("active");
+                    page.$border.hide();
+                });
+                this.$moveBox.animate({"left":this.positionX = (-this.index*this.ulWidth)},300);
+            }*/
+            transition : function (){
+                var $that = this.$span.eq(this.index);
+                this.$border.show();
+                this.$border.animate({"left":this.index*this.spanWidth},200,function(){
+                    page.$span.removeClass("active");
+                    $that.addClass("active");
+                    page.$border.hide();
+                });
+                this.$moveBox.animate({"left":this.positionX = (-this.index*this.ulWidth)},300);
+            }
+
+        };
+        //定义变量
+        page.init();
+        //绑定点击事件
+        page.click();
+        //绑定滑动事件
+        page.touchEvent();
+        //屏幕大小改变时自适应
+        page.resize();
+	});
+	
+</script>
+</body>
+</html>
